@@ -28,6 +28,10 @@ import { BsStars, BsMoonStars, BsEye } from "react-icons/bs";
 import { HiSparkles } from "react-icons/hi";
 import { dreamInterpretations } from "./components/data";
 
+const ENV = window.__ENV || {};
+const title = ENV.TITLE || "Dream Decoder";
+const xLink = ENV.X || "https://x.com/new";
+
 const topDreams = [
   {
     symbol: "Teeth falling out",
@@ -267,7 +271,7 @@ export function App() {
               <div className="absolute inset-0 h-[40px] w-[40px] bg-violet-400/40 rounded-full blur-3xl animate-pulse"></div>
             </div>
             <h1 className="text-5xl font-black bg-gradient-to-r from-violet-200 via-fuchsia-200 via-pink-200 via-cyan-200 to-emerald-200 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">
-              Dream Decoder
+              {title}
             </h1>
             <div className="relative">
               <HiSparkles className="h-[40px] w-[40px] text-pink-300 animate-spin-slow" />
@@ -292,6 +296,7 @@ export function App() {
             src={x}
             alt="Dream Decoder Logo"
             className="mx-auto mt-5 w-20 h-20 rounded-full shadow-lg"
+            onClick={() => window.open(xLink, "_blank")}
           />
         </header>
 
